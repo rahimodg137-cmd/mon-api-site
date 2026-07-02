@@ -2,16 +2,28 @@ import express from "express";
 import cors from "cors";
 import fetch from "node-fetch";
 
+import path from "path";
+import { fileURLToPath } from "url";
+
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 
-const API_KEY = process.env.API_KEY;
+/* ===== IMPORTANT : chemin pour fichiers statiques ===== */
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// route test
+/* ===== Sert ton site HTML (public/index.html) ===== */
+app.use(express.static(path.join(__dirname, "public")));
+
+/* ===== Page principale ===== */
 app.get("/", (req, res) => {
-  res.send("API en ligne 🚀");
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
+
+/* ===== Ton API chat ===== */
+const API_KEY = process.env.API_KEY;
 
 app.post("/chat", async (req, res) => {
   try {
@@ -27,7 +39,6 @@ app.post("/chat", async (req, res) => {
     });
 
     const data = await response.json();
-
     res.json(data);
 
   } catch (error) {
@@ -35,7 +46,7 @@ app.post("/chat", async (req, res) => {
   }
 });
 
-// IMPORTANT POUR RENDER
+/* ===== PORT Render ===== */
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
