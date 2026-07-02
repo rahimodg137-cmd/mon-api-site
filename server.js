@@ -8,21 +8,36 @@ app.use(express.json());
 
 const API_KEY = process.env.API_KEY;
 
-app.post("/chat", async (req, res) => {
-  const message = req.body.message;
-
-  const response = await fetch("https://api.exemple.com/v1/chat", {
-    method: "POST",
-    headers: {
-      "Authorization": `Bearer ${API_KEY}`,
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ message })
-  });
-
-  const data = await response.json();
-
-  res.json({ reply: data });
+// route test
+app.get("/", (req, res) => {
+  res.send("API en ligne 🚀");
 });
 
-app.listen(3000);
+app.post("/chat", async (req, res) => {
+  try {
+    const message = req.body.message;
+
+    const response = await fetch("https://api.exemple.com/v1/chat", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${API_KEY}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ message })
+    });
+
+    const data = await response.json();
+
+    res.json(data);
+
+  } catch (error) {
+    res.status(500).json({ error: "Erreur serveur" });
+  }
+});
+
+// IMPORTANT POUR RENDER
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log("Serveur lancé sur port " + PORT);
+});
