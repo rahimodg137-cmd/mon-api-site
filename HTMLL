@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketing Digital Pro</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+    }
+
+    header {
+      background: #111827;
+      padding: 20px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .hero {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 40px;
+      color: #22c55e;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #cbd5e1;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #22c55e;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      padding: 40px;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .card h3 {
+      color: #38bdf8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #111827;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  🚀 Digital Marketing Pro
+</header>
+
+<section class="hero">
+  <h1>Développe ton business en ligne</h1>
+  <p>
+    Services de marketing digital : gestion de comptes, croissance réseaux sociaux, publicité et stratégies de vente.
+  </p>
+
+  <button class="btn" onclick="contact()">
+    Me contacter sur WhatsApp
+  </button>
+
+  <p id="msg"></p>
+</section>
+
+<section class="services">
+
+  <div class="card">
+    <h3>📈 Growth</h3>
+    <p>Stratégie pour augmenter tes réseaux sociaux.</p>
+  </div>
+
+  <div class="card">
+    <h3>📣 Publicité</h3>
+    <p>Campagnes Facebook & Instagram Ads.</p>
+  </div>
+
+  <div class="card">
+    <h3>🤖 Automation</h3>
+    <p>Automatisation des messages et clients.</p>
+  </div>
+
+  <div class="card">
+    <h3>💼 Business</h3>
+    <p>Conseils pour monétiser ton activité.</p>
+  </div>
+
+</section>
+
+<footer>
+  © 2026 Digital Marketing Pro - Tous droits réservés
+</footer>
+
+<script>
+  function contact() {
+    document.getElementById("msg").innerText =
+      "📩 WhatsApp : +226 01 16 04 86";
+  }
+</script>
+
+</body>
+</html>
